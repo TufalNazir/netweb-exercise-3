@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Teachers Listing
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Teachers Listing</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="ion-padding">
+    <ion-searchbar placeholder="Search By First or Last name" (ionInput)="handleOnSearchOfStudents($event)"
+                   mode="ios"></ion-searchbar>
+  </div>
+
+  <div class="ion-padding-horizontal">
+    <ion-card *ngFor="let teacher of filteredTeachers">
+      <ion-card-content class="ion-no-padding">
+        <ion-grid>
+          <ion-row class="">
+            <ion-col>
+              <ion-card-subtitle>Name</ion-card-subtitle>
+              <ion-text>{{ teacher?.name || '' }}</ion-text>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-card-subtitle>Experience(yrs)</ion-card-subtitle>
+              <ion-text>{{ teacher?.exp || '' }}</ion-text>
+            </ion-col>
+            <ion-col>
+              <ion-card-subtitle>Department</ion-card-subtitle>
+              <ion-text>{{ teacher?.department || '' }}</ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>

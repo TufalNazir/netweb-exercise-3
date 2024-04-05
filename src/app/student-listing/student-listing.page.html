@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Students Listing
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Students Listing</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="ion-padding">
+    <ion-searchbar placeholder="Search By First or Last name" (ionInput)="handleOnSearchOfStudents($event)" mode="ios"></ion-searchbar>
+  </div>
+
+  <div class="ion-padding-horizontal">
+    <ion-card *ngFor="let student of filteredStudents">
+      <ion-card-content class="ion-no-padding">
+        <ion-grid>
+          <ion-row class="">
+            <ion-col>
+              <ion-card-subtitle>Name</ion-card-subtitle>
+              <ion-text>{{ student?.firstName || '' }} {{ student?.lastName || '' }}</ion-text>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-card-subtitle>Contact</ion-card-subtitle>
+              <ion-text>{{ student?.contactNumber || '' }}</ion-text>
+            </ion-col>
+            <ion-col>
+              <ion-card-subtitle>Email</ion-card-subtitle>
+              <ion-text>{{ student?.email || '' }}</ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>
